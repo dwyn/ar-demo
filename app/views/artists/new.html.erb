@@ -1,0 +1,18 @@
+<%= form_for @artist do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :country %>
+  <%= f.text_field :country %><br>
+
+  Below belongs to a new song <br>
+  
+  <%= f.fields_for :songs do | object | %>
+    <%= object.label :title %>
+    <%= object.text_field :title %> <br>
+    <%= object.label :length %>
+    <%= object.text_field :length %> <br>
+  <% end %>
+  <%= f.submit %>
+<% end %>

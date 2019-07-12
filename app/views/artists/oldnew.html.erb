@@ -1,0 +1,16 @@
+<h1> test </h1>
+
+<%= form_for @artist do |f| %>
+  <%#= <input type="hidden" name="authenticity_token" value="token_value"> %>
+
+  name <%= f.text_field :name %> <br>
+  country <%= f.text_field :country %> <br>
+
+  <%= f.fields_for :songs do |son_attr| %>
+    <%= son_attr.text_field :title  %>
+    <%= son_attr.number_field :length  %>
+  <% end%>
+
+  <%= f.submit %>
+
+<% end %>
