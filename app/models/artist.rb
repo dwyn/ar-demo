@@ -1,8 +1,6 @@
 class Artist < ApplicationRecord
   has_many :songs
-  accepts_nested_attributes_for :songs
-
-  
+  has_many :genres, through: :songs
 end
 
 

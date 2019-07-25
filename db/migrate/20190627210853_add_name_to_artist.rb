@@ -1,6 +1,7 @@
 class AddNameToArtist < ActiveRecord::Migration[5.1]
   def change
     add_column :artists, :name, :string
-    add_column :artists, :country, :string
+    add_column :artists, :location, :string
+    add_column :artists, :age, :string
   end
 end

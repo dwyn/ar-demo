@@ -1,8 +1,17 @@
 class Song < ApplicationRecord
   belongs_to :artist#, optional: :true
-end
+  has_many :song_genres
+  has_many :genres, through: :song_genres
 
-test.list_my_num
-[2, 1, 2, 8, 1, 0, 1, 1, 1,1].each do |number|
-  puts number
+  scope :who_is_my_artist, -> {where(artist_id: 1)} 
+  
+  # def self.who_is_my_artist
+  #   where(artist_id: 1)
+  # end
+
+  def self.first_five
+    limit(5).order(created_at: :desc)
+  end
+
+
 end
