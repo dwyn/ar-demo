@@ -34,7 +34,7 @@ p %Q(I've created #{Artist.count} artists for you.)
 
 25.times do
   Song.create!(
-    artist_id: Faker::Number.between(from: 1, to: 25),
+    artist_id: Faker::Number.between(1, 25),
     title: Faker::Ancient.hero,
     length: 300,
     year: 3000
