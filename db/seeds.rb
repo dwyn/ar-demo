@@ -1,4 +1,4 @@
-require 'faker'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -16,7 +16,11 @@ require 'faker'
 #   # SQLite
 #   ActiveRecord::Base.connection.execute("DELETE FROM #{table}")
 # end
+Artist.destroy_all
+Song.destroy_all
+Genre.destroy_all
 
+p %Q(I've destroyed all of the things for you.)
 
 25.times do
   Artist.create!(
@@ -26,11 +30,23 @@ require 'faker'
   )
 end
 
+p %Q(I've created #{Artist.count} artists for you.)
+
 25.times do
   Song.create!(
-    artist_id: 1,
+    artist_id: Faker::Number.between(from: 1, to: 25),
     title: Faker::Ancient.hero,
     length: 300,
     year: 3000
   )
 end
+
+p %Q(I've created #{Song.count} songs for you.)
+
+10.times do
+  Genre.create!(
+    name: Faker::Music.genre
+  )
+end
+
+p %Q(I've created #{Genre.count} genres for you.)
